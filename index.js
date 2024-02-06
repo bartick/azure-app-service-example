@@ -13,6 +13,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+    res.send('Hello World');
+});
+
 app.post('/subscribe', async(req, res) => {
     const { name, email } = req.body;
     const [info, error] = await subscribe(transporter, email, name);
